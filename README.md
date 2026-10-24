@@ -1,5 +1,7 @@
 # 轻投 · LiteDrop
 
+[![Build](https://github.com/miralexand/LiteDrop/actions/workflows/build.yml/badge.svg)](https://github.com/miralexand/LiteDrop/actions/workflows/build.yml)
+
 轻投是一个轻量的局域网文件投递站：双击启动后，同一 Wi-Fi 下的手机、平板、电脑打开网页即可把文件拖进来；文件直接保存在本机，不上传云端。蓝白配色的界面、系统托盘常驻、可选 HTTPS 加密和 Cloudflare 临时公网隧道，让它适合临时收图、收作业、收素材等场景。
 
 ## 功能
@@ -113,6 +115,17 @@ npm run build:apk    # 生成 dist/LiteDrop.apk
 - **exe**：使用 Node SEA + postject 注入单文件，并切换为 Windows GUI 子系统，运行时无控制台、驻留托盘。构建时需要 Node.js，结果约 80 MB。
 - **APK**：需要 Android SDK Platform 34、Build Tools 34、JDK 17+ 和 Gradle 8.7+。首次构建会自动写入 `android/local.properties`。
 - 如果项目根目录存在 `cloudflared.exe`，构建 exe 时会一并复制到 `dist/`。
+
+### GitHub Actions 自动构建
+
+推送代码到 `main`、手动触发 workflow，或推送 `v*` 标签时，GitHub Actions 会自动构建：
+
+| 产物 | 说明 |
+| --- | --- |
+| `LiteDrop-windows` | `LiteDrop.exe` + `cloudflared.exe` |
+| `LiteDrop-android` | `LiteDrop.apk` |
+
+在仓库的 **Actions → Build** 中下载构建产物。推送形如 `v1.0.0` 的标签时，还会自动创建 GitHub Release 并附上三个分发文件。
 
 ## 数据目录
 
