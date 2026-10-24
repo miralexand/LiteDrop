@@ -29,3 +29,6 @@ android/local.properties
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Private requirements document
+需求文档.txt
