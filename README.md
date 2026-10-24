@@ -10,7 +10,7 @@
 - **文件管理**：文件列表、搜索、在线预览、下载、删除
 - **分享直达**：`/?mode=upload` 打开即上传，`&to=xxx` 可投递到子目录
 - **可选局域网加密**：一键开启 HTTPS，局域网 HTTP 自动跳转加密地址，默认关闭
-- **公网隧道**：调用 Cloudflare Quick Tunnel 生成临时分享地址，支持启停
+- **公网隧道**：调用 Cloudflare Quick Tunnel 生成临时分享地址，支持启停；开启前需确认免责提醒
 - **Windows 单文件 exe**：Node SEA 打包，无控制台运行，常驻系统托盘
 - **Android WebView APK**：内置 `onShowFileChooser`，支持手机网页选择文件上传
 - **明亮蓝白 UI**：纸飞机品牌元素，桌面端与移动端自适应

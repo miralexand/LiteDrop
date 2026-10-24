@@ -354,6 +354,35 @@
     </div>
   </div>
 
+  <div class="modal-layer" id="tunnelDisclaimerModal" hidden>
+    <div class="modal-card disclaimer-card" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow small"><span class="eyebrow-line"></span>PUBLIC TUNNEL</div>
+          <h2 id="disclaimerTitle">公网隧道免责提醒</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-modal="tunnelDisclaimerModal" aria-label="关闭">
+          <svg class="icon"><use href="#i-close"></use></svg>
+        </button>
+      </div>
+      <p class="modal-copy">开启后，轻投将通过 Cloudflare Quick Tunnel 临时把本机服务暴露到公网。</p>
+      <ul class="disclaimer-list">
+        <li>隧道有效期内，任何获得链接的人都可以访问并投递文件。</li>
+        <li>Cloudflare 免费隧道不保证可用性、速度或稳定性，可能随时中断。</li>
+        <li>请不要通过该隧道传输敏感、机密或需要长期保存的重要数据。</li>
+        <li>关闭隧道或退出轻投后，公网地址会立即失效。</li>
+      </ul>
+      <label class="disclaimer-check">
+        <input type="checkbox" id="disclaimerAgree">
+        <span>我已阅读并了解以上风险，仍要开启公网隧道</span>
+      </label>
+      <div class="modal-actions">
+        <button class="button ghost" type="button" data-close-modal="tunnelDisclaimerModal">取消</button>
+        <button class="button primary" id="disclaimerConfirm" type="button" disabled>同意并开启</button>
+      </div>
+    </div>
+  </div>
+
   <div class="modal-layer preview-layer" id="previewModal" hidden>
     <button class="icon-button preview-close" id="previewClose" type="button" aria-label="关闭预览">
       <svg class="icon"><use href="#i-close"></use></svg>

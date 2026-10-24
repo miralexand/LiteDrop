@@ -78,6 +78,9 @@ const els = {
   confirmMessage: $('#confirmMessage'),
   confirmCancel: $('#confirmCancel'),
   confirmOk: $('#confirmOk'),
+  tunnelDisclaimerModal: $('#tunnelDisclaimerModal'),
+  disclaimerAgree: $('#disclaimerAgree'),
+  disclaimerConfirm: $('#disclaimerConfirm'),
   previewModal: $('#previewModal'),
   previewBody: $('#previewBody'),
   previewClose: $('#previewClose'),
@@ -646,6 +649,19 @@ function scheduleTunnelPoll() {
   }, 1400);
 }
 
+function requestStartTunnel() {
+  if (state.tunnel && ['starting', 'running'].includes(state.tunnel.state)) return;
+  els.disclaimerAgree.checked = false;
+  els.disclaimerConfirm.disabled = true;
+  openModal('tunnelDisclaimerModal');
+}
+
+async function acceptTunnelDisclaimer() {
+  if (!els.disclaimerAgree.checked) return;
+  closeModal('tunnelDisclaimerModal');
+  await startTunnel();
+}
+
 async function startTunnel() {
   if (state.tunnel && ['starting', 'running'].includes(state.tunnel.state)) return;
   try {
@@ -969,8 +985,12 @@ function bindEvents() {
 
   els.networkButton.addEventListener('click', () => openModal('networkModal'));
   els.securityToggle.addEventListener('click', toggleSecurity);
-  els.startTunnelButton.addEventListener('click', startTunnel);
-  els.retryTunnelButton.addEventListener('click', startTunnel);
+  els.startTunnelButton.addEventListener('click', requestStartTunnel);
+  els.retryTunnelButton.addEventListener('click', requestStartTunnel);
+  els.disclaimerAgree.addEventListener('change', () => {
+    els.disclaimerConfirm.disabled = !els.disclaimerAgree.checked;
+  });
+  els.disclaimerConfirm.addEventListener('click', acceptTunnelDisclaimer);
   els.cancelTunnelButton.addEventListener('click', stopTunnel);
   els.stopTunnelButton.addEventListener('click', stopTunnel);
   els.refreshButton.addEventListener('click', refreshFiles);
@@ -1031,6 +1051,8 @@ function bindEvents() {
       closePreview();
     } else if (!els.confirmModal.hidden) {
       settleConfirm(false);
+    } else if (!els.tunnelDisclaimerModal.hidden) {
+      closeModal('tunnelDisclaimerModal');
     } else if (!els.networkModal.hidden) {
       closeModal('networkModal');
     }

@@ -1543,6 +1543,50 @@ button {
   width: min(420px, calc(100vw - 36px));
 }
 
+.disclaimer-card {
+  width: min(540px, calc(100vw - 36px));
+}
+
+.disclaimer-list {
+  margin: 0 0 18px;
+  padding-left: 20px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.8;
+}
+
+.disclaimer-list li {
+  padding-left: 4px;
+}
+
+.disclaimer-list li::marker {
+  color: var(--accent);
+}
+
+.disclaimer-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--text-soft);
+  font-size: 12.5px;
+  line-height: 1.65;
+  cursor: pointer;
+}
+
+.disclaimer-check input {
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0;
+  accent-color: var(--accent);
+  flex: none;
+  cursor: pointer;
+}
+
 .modal-head {
   display: flex;
   align-items: flex-start;
