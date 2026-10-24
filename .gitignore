@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+build/
+dist/
+cloudflared.exe
+*.exe
+*.apk
+
+# Runtime data
+uploads/
+data/
+*.log
+
+# Local test homes
+.test-home/
+.verify-home/
+.verify-out.log
+.verify-err.log
+
+# Android local build files
+android/.gradle/
+android/app/build/
+android/local.properties
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

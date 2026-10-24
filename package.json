@@ -1,0 +1,26 @@
+{
+  "name": "litedrop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "轻投 LiteDrop - 局域网文件轻投递站",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js --no-open",
+    "smoke": "node scripts/smoke-test.js",
+    "smoke:exe": "node scripts/smoke-test.js --exe dist/LiteDrop.exe",
+    "build:assets": "node scripts/build-assets.js",
+    "build:exe": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-exe.ps1",
+    "build:apk": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-apk.ps1",
+    "build": "npm run build:exe && npm run build:apk"
+  },
+  "dependencies": {
+    "content-disposition": "0.5.4",
+    "express": "4.22.3",
+    "multer": "2.5.0",
+    "selfsigned": "5.5.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.21.5"
+  }
+}

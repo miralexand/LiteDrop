@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f7fc">
+  <meta name="color-scheme" content="light">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="轻投 LiteDrop — 轻轻一投，局域网文件即刻送达">
+  <title>轻投 · LiteDrop</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-box" viewBox="0 0 24 24">
+      <path d="M21 8.5 12 3 3 8.5v7L12 21l9-5.5z"/>
+      <path d="m3 8.5 9 5.5 9-5.5"/>
+      <path d="M12 14v7"/>
+      <path d="m7.5 5.9 9 5.5"/>
+    </symbol>
+    <symbol id="i-send" viewBox="0 0 24 24">
+      <path d="M21 3 10.5 13.5"/>
+      <path d="M21 3 14.5 21l-4-8-8-4z"/>
+    </symbol>
+    <symbol id="i-wifi" viewBox="0 0 24 24">
+      <path d="M4.9 9.9a10 10 0 0 1 14.2 0"/>
+      <path d="M7.8 12.8a6 6 0 0 1 8.4 0"/>
+      <path d="M10.6 15.6a2 2 0 0 1 2.8 0"/>
+      <circle cx="12" cy="18.4" r=".8" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M3.4 9h17.2M3.4 15h17.2"/>
+      <path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18z"/>
+    </symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24">
+      <rect x="9" y="9" width="11" height="11" rx="2"/>
+      <path d="M15 5.5A2.5 2.5 0 0 0 12.5 3h-6A3.5 3.5 0 0 0 3 6.5v6A2.5 2.5 0 0 0 5.5 15"/>
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24">
+      <path d="m6 6 12 12M18 6 6 18"/>
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="7"/>
+      <path d="m16.2 16.2 4.3 4.3"/>
+    </symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24">
+      <path d="M20 11a8 8 0 1 0-2.3 6.6"/>
+      <path d="M20 4v7h-7"/>
+    </symbol>
+    <symbol id="i-download" viewBox="0 0 24 24">
+      <path d="M12 3v11"/>
+      <path d="m7.5 10.5 4.5 4.5 4.5-4.5"/>
+      <path d="M4 20h16"/>
+    </symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24">
+      <path d="M4 7h16M9 7V4.8A1.8 1.8 0 0 1 10.8 3h2.4A1.8 1.8 0 0 1 15 4.8V7"/>
+      <path d="m6.5 7 .8 12a2 2 0 0 0 2 1.9h5.4a2 2 0 0 0 2-1.9l.8-12"/>
+      <path d="M10 11v6M14 11v6"/>
+    </symbol>
+    <symbol id="i-file" viewBox="0 0 24 24">
+      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+      <path d="M14 3v5h5"/>
+    </symbol>
+    <symbol id="i-image" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="16" rx="2.5"/>
+      <circle cx="8.5" cy="9.5" r="1.6"/>
+      <path d="m4 18 5-5 3.5 3.5 2.5-2.5 5 4.5"/>
+    </symbol>
+    <symbol id="i-video" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="13" height="14" rx="2.5"/>
+      <path d="m16 10 5-3v10l-5-3z"/>
+    </symbol>
+    <symbol id="i-audio" viewBox="0 0 24 24">
+      <path d="M9 18V6l10-2v12"/>
+      <circle cx="6" cy="18" r="3"/>
+      <circle cx="16" cy="16" r="3"/>
+    </symbol>
+    <symbol id="i-archive" viewBox="0 0 24 24">
+      <path d="M4 8h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/>
+      <path d="M3 4h18v4H3zM10 12h4"/>
+    </symbol>
+    <symbol id="i-code" viewBox="0 0 24 24">
+      <path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 4l-4 16"/>
+    </symbol>
+    <symbol id="i-pdf" viewBox="0 0 24 24">
+      <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/>
+      <path d="M14 3v5h5M8 16.5h8M8 13h5"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m4.5 12.5 5 5 10-11"/>
+    </symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24">
+      <path d="M12 3 2.8 20h18.4z"/>
+      <path d="M12 9v5M12 17.5v.2"/>
+    </symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24">
+      <path d="M7 18h10a4 4 0 0 0 .6-7.95A6 6 0 0 0 6.1 9.2 4.4 4.4 0 0 0 7 18z"/>
+    </symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24">
+      <rect x="4.5" y="10" width="15" height="10.5" rx="2.5"/>
+      <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+      <path d="M12 14v2.5"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <rect x="6.5" y="2.5" width="11" height="19" rx="2.6"/>
+      <path d="M10.5 18.8h3"/>
+    </symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24">
+      <path d="M12 16V4"/>
+      <path d="m7.5 8.5 4.5-4.5 4.5 4.5"/>
+      <path d="M4 15.5v2A2.5 2.5 0 0 0 6.5 20h11a2.5 2.5 0 0 0 2.5-2.5v-2"/>
+    </symbol>
+    <symbol id="i-external" viewBox="0 0 24 24">
+      <path d="M14 4h6v6M20 4l-9 9"/>
+      <path d="M18 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/>
+    </symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24">
+      <path d="M2.5 12S6 5.8 12 5.8 21.5 12 21.5 12 18 18.2 12 18.2 2.5 12 2.5 12z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24">
+      <path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2.5h6.5A2.5 2.5 0 0 1 21 10v7a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17z"/>
+    </symbol>
+    <symbol id="i-link" viewBox="0 0 24 24">
+      <path d="M10 13.5a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.3 1.3"/>
+      <path d="M14 10.5a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.3-1.3"/>
+    </symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24">
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/>
+    </symbol>
+  </svg>
+
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+  <div class="ambient ambient-c"></div>
+
+  <div class="app" id="app">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="轻投首页">
+        <span class="brand-mark"><svg class="icon icon-lg"><use href="#i-send"></use></svg></span>
+        <span class="brand-copy">
+          <span class="brand-name">轻投</span>
+          <span class="brand-en">LiteDrop</span>
+        </span>
+      </a>
+      <div class="topbar-right">
+        <div class="status-cluster">
+          <span class="status-pill" id="lanPill"><span class="status-dot"></span><span id="lanLabel">局域网</span></span>
+          <span class="status-pill" id="tunnelPill"><span class="status-dot"></span><span id="tunnelLabel">公网未开启</span></span>
+        </div>
+        <button class="icon-button" id="networkButton" type="button" aria-label="查看访问地址" title="访问地址">
+          <svg class="icon"><use href="#i-wifi"></use></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="hero" id="hero">
+        <div class="hero-plane" aria-hidden="true">
+          <span class="plane-trail"></span>
+          <svg class="icon"><use href="#i-send"></use></svg>
+        </div>
+        <div class="eyebrow"><span class="eyebrow-line"></span>LITE DROP STATION</div>
+        <h1 id="heroTitle">把文件<span class="accent">轻投</span>过来</h1>
+        <p class="hero-copy" id="heroCopy">轻轻一拖，文件就落在本机。无需登录，无需云端，投完即走。</p>
+        <div class="hero-meta" id="heroMeta">
+          <span class="meta-chip"><svg class="icon"><use href="#i-lock"></use></svg>本机保存</span>
+          <span class="meta-chip"><svg class="icon"><use href="#i-file"></use></svg>支持多文件</span>
+          <span class="meta-chip"><svg class="icon"><use href="#i-wifi"></use></svg>局域网直达</span>
+          <span class="meta-chip"><svg class="icon"><use href="#i-send"></use></svg>一键轻投</span>
+        </div>
+      </section>
+
+      <section class="panel upload-panel" id="uploadPanel">
+        <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="选择或拖入文件">
+          <div class="dropzone-glow"></div>
+          <div class="dropzone-icon">
+            <svg class="icon icon-xl"><use href="#i-send"></use></svg>
+          </div>
+          <div class="dropzone-copy">
+            <h2 id="dropTitle">把文件投到这里</h2>
+            <p id="dropSubtitle">拖拽或点击选择，支持一次轻投多个文件</p>
+          </div>
+          <button class="button primary" id="pickButton" type="button">选择文件</button>
+          <input id="fileInput" type="file" multiple hidden>
+          <div class="dropzone-hint">
+            <span id="targetHint">投递至 uploads/</span>
+            <span id="limitHint">单个文件最大 20 GB</span>
+          </div>
+        </div>
+        <div class="upload-queue" id="uploadQueue" hidden></div>
+      </section>
+
+      <section class="panel security-panel" id="securityPanel">
+        <div class="panel-heading">
+          <div>
+            <div class="eyebrow small"><span class="eyebrow-line"></span>SECURE LAN</div>
+            <h2>局域网加密 <span class="optional-tag">可选</span></h2>
+            <p>开启后，局域网设备会自动改用 HTTPS 加密传输。</p>
+          </div>
+          <button class="switch" id="securityToggle" type="button" role="switch" aria-checked="false" aria-label="开启局域网加密">
+            <span class="switch-track"><span class="switch-thumb"></span></span>
+            <span class="switch-label" id="securityToggleLabel">已关闭</span>
+          </button>
+        </div>
+        <div class="security-body" id="securityOff">
+          <div class="security-hint">
+            <svg class="icon"><use href="#i-lock"></use></svg>
+            <span>默认关闭，保持轻量直连。开启后仅对局域网访问生效，本机与公网隧道不受影响。</span>
+          </div>
+        </div>
+        <div class="security-body" id="securityOn" hidden>
+          <div class="security-status-line">
+            <span class="status-pill is-online"><span class="status-dot"></span><span>HTTPS 已启用</span></span>
+            <span class="security-fingerprint">证书指纹 <code id="securityFingerprint"></code></span>
+          </div>
+          <div class="address-list security-address-list" id="securityAddressList"></div>
+          <div class="security-hint subtle">
+            <svg class="icon"><use href="#i-lock"></use></svg>
+            <span>使用自签名证书，首次访问时浏览器会提示“继续前往”，确认后即可加密传输。</span>
+          </div>
+        </div>
+        <div class="security-error" id="securityError" hidden>
+          <svg class="icon"><use href="#i-alert"></use></svg>
+          <p id="securityErrorMessage"></p>
+        </div>
+      </section>
+
+      <section class="panel share-panel" id="sharePanel">
+        <div class="panel-heading">
+          <div>
+            <div class="eyebrow small"><span class="eyebrow-line"></span>REMOTE DROP</div>
+            <h2>远程轻投</h2>
+            <p>开启 Cloudflare 快速隧道，让不在同一网络的人也能把文件轻投进来。</p>
+          </div>
+          <div class="tunnel-state-badge" id="tunnelBadge">未开启</div>
+        </div>
+        <div class="tunnel-body">
+          <div class="tunnel-idle" id="tunnelIdle">
+            <div class="tunnel-note">
+              <svg class="icon"><use href="#i-cloud"></use></svg>
+              <span>需要同目录下的 <code>cloudflared.exe</code></span>
+            </div>
+            <button class="button secondary" id="startTunnelButton" type="button">开启公网隧道</button>
+          </div>
+          <div class="tunnel-starting" id="tunnelStarting" hidden>
+            <span class="spinner"></span>
+            <div class="tunnel-starting-copy">
+              <strong>正在连接 Cloudflare</strong>
+              <span>通常需要几秒钟...</span>
+            </div>
+            <button class="button ghost" id="cancelTunnelButton" type="button">取消</button>
+          </div>
+          <div class="tunnel-running" id="tunnelRunning" hidden>
+            <div class="link-row">
+              <span class="link-label">公网地址</span>
+              <a class="link-value" id="tunnelUrl" target="_blank" rel="noreferrer"></a>
+              <button class="icon-button small" type="button" data-copy-target="tunnelUrl" aria-label="复制公网地址" title="复制">
+                <svg class="icon"><use href="#i-copy"></use></svg>
+              </button>
+            </div>
+            <div class="link-row highlight">
+              <span class="link-label">直达轻投</span>
+              <a class="link-value" id="tunnelShareUrl" target="_blank" rel="noreferrer"></a>
+              <button class="icon-button small" type="button" data-copy-target="tunnelShareUrl" aria-label="复制直达轻投地址" title="复制">
+                <svg class="icon"><use href="#i-copy"></use></svg>
+              </button>
+            </div>
+            <div class="tunnel-actions">
+              <span class="tunnel-note subtle"><svg class="icon"><use href="#i-lock"></use></svg>链接仅在隧道开启期间有效</span>
+              <button class="button ghost danger-ghost" id="stopTunnelButton" type="button">停止隧道</button>
+            </div>
+          </div>
+          <div class="tunnel-error" id="tunnelError" hidden>
+            <svg class="icon"><use href="#i-alert"></use></svg>
+            <div class="tunnel-error-copy">
+              <strong>隧道未连接</strong>
+              <p id="tunnelErrorMessage"></p>
+            </div>
+            <button class="button secondary" id="retryTunnelButton" type="button">重试</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="library" id="library">
+        <div class="library-heading">
+          <div>
+            <div class="eyebrow small"><span class="eyebrow-line"></span>DROP HISTORY</div>
+            <h2>投递记录 <span class="count-badge" id="fileCount">0</span></h2>
+            <p id="librarySummary">还没有投递</p>
+          </div>
+          <div class="library-tools">
+            <label class="search-box">
+              <svg class="icon"><use href="#i-search"></use></svg>
+              <input id="searchInput" type="search" placeholder="搜索投递记录" autocomplete="off" aria-label="搜索投递记录">
+            </label>
+            <button class="icon-button" id="refreshButton" type="button" aria-label="刷新文件列表" title="刷新">
+              <svg class="icon"><use href="#i-refresh"></use></svg>
+            </button>
+          </div>
+        </div>
+        <div class="file-list" id="fileList"></div>
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon"><svg class="icon icon-xl"><use href="#i-send"></use></svg></div>
+          <h3>还没有投递</h3>
+          <p>文件投进来后会出现在这里，可随时下载或删除。</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>轻投 LiteDrop <span class="version" id="versionLabel">v1.0.0</span></span>
+      <span class="footer-sep">·</span>
+      <span>文件仅保存在本机</span>
+      <span class="footer-sep">·</span>
+      <span id="localUrlLabel">http://localhost:3456</span>
+    </footer>
+  </div>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+  <div class="offline-banner" id="offlineBanner" hidden>无法连接到本地服务，请确认轻投正在运行。</div>
+
+  <div class="modal-layer" id="networkModal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="networkTitle">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow small"><span class="eyebrow-line"></span>ACCESS</div>
+          <h2 id="networkTitle">访问地址</h2>
+        </div>
+        <button class="icon-button" type="button" data-close-modal="networkModal" aria-label="关闭">
+          <svg class="icon"><use href="#i-close"></use></svg>
+        </button>
+      </div>
+      <p class="modal-copy">同一局域网内的设备可以打开下面的地址，手机输入或分享链接即可轻投文件。</p>
+      <div class="address-list" id="addressList"></div>
+      <div class="modal-foot"><svg class="icon"><use href="#i-wifi"></use></svg>确保电脑与手机连接在同一个 Wi-Fi 下</div>
+    </div>
+  </div>
+
+  <div class="modal-layer" id="confirmModal" hidden>
+    <div class="modal-card modal-small" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <div class="modal-head">
+        <h2 id="confirmTitle">删除文件</h2>
+      </div>
+      <p class="modal-copy" id="confirmMessage"></p>
+      <div class="modal-actions">
+        <button class="button ghost" id="confirmCancel" type="button">取消</button>
+        <button class="button danger" id="confirmOk" type="button">删除</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-layer preview-layer" id="previewModal" hidden>
+    <button class="icon-button preview-close" id="previewClose" type="button" aria-label="关闭预览">
+      <svg class="icon"><use href="#i-close"></use></svg>
+    </button>
+    <div class="preview-body" id="previewBody"></div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
